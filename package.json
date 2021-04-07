@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsc ./src/index.ts"
+    "start": "node index",
+    "dev:base": "webpack-dev-server --config webpack.dev.js",
+    "dev": "npm run dev:base -- --open",
+    "build": "webpack --config webpack.prod.js",
+    "check": "npm-check -u -s"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +19,7 @@
     "@types/react-dom": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
+    "clean-webpack-plugin": "^3.0.0",
     "eslint": "^7.23.0",
     "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-plugin-import": "^2.22.1",
