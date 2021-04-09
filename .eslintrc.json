@@ -21,10 +21,12 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "react"
   ],
   "rules": {
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error"
   }
