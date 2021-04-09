@@ -1,12 +1,13 @@
 const path = require('path')
+const { DefinePlugin } = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   mode: 'development',
   entry: './src/main/index.tsx',
   output: {
-    path: path.join(__dirname, 'public'),
-    publicPath: '/public/js',
+    path: path.join(__dirname, 'public/js'),
+    publicPath: '/public/js/',
     filename: 'bundle.js'
   },
   resolve: {
@@ -38,9 +39,29 @@ module.exports = {
             loader: 'sass-loader'
           }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader'
+          }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000
+            }
+          }
+        ]
       }
     ]
   },
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: './public',
     writeToDisk: true,
@@ -51,5 +72,10 @@ module.exports = {
     react: 'React',
     'react-dom': 'ReactDOM'
   },
-  plugins: [new CleanWebpackPlugin()]
+  plugins: [
+    new CleanWebpackPlugin(),
+    new DefinePlugin({
+      'process.env.API_URL': JSON.stringify('https://espaco-de-conhecimento-backend.herokuapp.com/api')
+    })
+  ]
 }
