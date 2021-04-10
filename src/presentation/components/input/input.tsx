@@ -11,7 +11,7 @@ const Input: React.FC<Props> = (props: Props) => {
   const getStatus = (): string => {
     return props.title ? '🔴' : '🟢'
   }
-
+  
   const getTitle = (): string => {
     return props.title || 'Tudo certo'
   }
@@ -20,7 +20,9 @@ const Input: React.FC<Props> = (props: Props) => {
     <div className={Styles.inputWrap}>
       <input
         {...props}
-        readOnly onFocus={enableInput}/>
+        readOnly onFocus={enableInput}
+        // data-status={props.title ? 'invalid' : 'valid'}
+        />
       <span
         title={getTitle()}
         className={Styles.status}>
