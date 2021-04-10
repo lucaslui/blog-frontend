@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 import Styles from './login-styles.scss'
-import { LoginHeader, Footer, Input, FormStatus, Logo } from '@/presentation/components'
+import { LoginHeader, Footer, Input, FormStatus, Logo, Button } from '@/presentation/components'
 import { Validation } from '@/presentation/protocols/validation'
 import { Authentication } from '@/domain/usecases/auth/authentication'
 import { SaveAccessToken } from '@/domain/usecases/auth/save-access-token'
@@ -40,10 +40,10 @@ const Login: React.FC<Props> = ({ validation, authentication, saveAccessToken }:
     event.preventDefault()
     try {
       if (!state.isLoading && !state.isFormInvalid) {
-        setState({
-          ...state,
+        setState(oldState => ({
+          ...oldState,
           isLoading: true
-        })
+        }))
         const account = await authentication.auth({ email: state.email, password: state.password })
         await saveAccessToken.save(account.accessToken)
         history.replace('/')
@@ -73,7 +73,7 @@ const Login: React.FC<Props> = ({ validation, authentication, saveAccessToken }:
           <h2>Login</h2>
           <Input onChange={handleChange} title={state.emailError} type="email" name="email" placeholder="Digite seu e-mail"/>
           <Input onChange={handleChange} title={state.passwordError} type="password" name="password" placeholder="Digite sua senha"/>
-          <button disabled={!!state.emailError || !!state.passwordError} type="submit"> Entrar </button>
+          <Button disabled={state.isFormInvalid} type="submit"> Entrar </Button>
           <Link to="/signup" className={Styles.link}>Não tem cadastro? Cadastre-se aqui</Link>
           <FormStatus isLoading={state.isLoading} mainError={state.mainError}/>
         </form>
