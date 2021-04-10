@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Login } from '@/presentation/pages'
+import Login from '@/presentation/pages/login/login'
 
 import { makeRemoteAuthentication } from '../../services/auth/remote-authentication-factory'
 import { makeLoginValidation } from './login-validation-factory'
