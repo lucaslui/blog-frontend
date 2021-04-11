@@ -3,6 +3,7 @@ export type HttpRequest = {
   method: HttpMethod
   body?: any
   headers?: any
+  params?: any
 }
 
 export type HttpMethod = 'post' | 'get' | 'put' | 'delete'
