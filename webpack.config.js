@@ -11,7 +11,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'scss'],
+    extensions: ['.ts', '.tsx', '.js', 'scss', 'gif', 'png'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
@@ -32,7 +32,9 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true
+              modules: {
+                localIdentName: '[local]'
+              }
             }
           },
           {
