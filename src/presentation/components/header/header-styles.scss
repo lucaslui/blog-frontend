@@ -1,0 +1,92 @@
+@import '../../styles/colors.scss';
+
+.header {
+  grid-area: header;
+  background-color: $background-secondary-color;
+  display: flex;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 62px;
+      width: 62px;
+      margin: 20px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        font-family: 'Indie Flower';
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $primary-color;
+        margin-bottom: 4px;
+      }
+
+      h2 {
+        font-family: 'Indie Flower';
+        font-size: 1.1rem;
+        font-weight: 200;
+        color: $secondary-color;
+      }
+    }
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .settings {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 20px;
+
+    .dropdown {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background: none;
+      margin-left: 20px;
+      cursor: pointer;
+
+      img {
+        border-radius: 50%;
+        height: 62px;
+        width: 62px;
+        background-color: $disabled-color;
+      }
+
+      i {
+        font-size: 1.2rem;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    i {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    span {
+      font-size: 1rem;
+    }
+  }
+}
