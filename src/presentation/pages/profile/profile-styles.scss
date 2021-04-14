@@ -1,0 +1,59 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spaces.scss';
+
+.profile {
+  display: grid;
+  grid-template-rows: auto 100% auto;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: 'header header' 'sidebar content' 'footer footer';
+
+  .content {
+    grid-area: content;
+    background-color: $background-secondary-color;
+    border-radius: 10px;
+    margin: $outside-gap;
+    padding: $inside-gap;
+
+    .panel {
+      display: flex;
+      flex-direction: column;
+
+      .form {
+        display: block;
+        margin-top: $outside-gap;
+
+        .row {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-end;
+
+          .inputGroup {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            span {
+              margin-bottom: 10px;
+            }
+          }
+
+          .mr {
+            margin-right: $outside-gap;
+          }
+
+          button {
+            margin-bottom: 20px;
+            align-self: flex-end;
+            width: 220px;
+          }
+        }
+
+      }
+    }
+  }
+
+  @media only screen and (max-width: 680px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'header' 'content' 'footer';
+  }
+}
