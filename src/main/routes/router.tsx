@@ -6,6 +6,8 @@ import { makeSignUp } from '../factories/pages/signup/signup-factory'
 // import { getCurrentAccountAdapter, setCurrentAccountAdapter } from '../adapters/current-account-adapter'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from '@/presentation/pages/home/home'
+import Profile from '@/presentation/pages/profile/profile'
 
 const Router: React.FC = () => {
   // const state = {
@@ -15,8 +17,10 @@ const Router: React.FC = () => {
   return (
       <BrowserRouter>
         <Switch>
-          <Route path="/login" exact component={makeLogin} />
-          <Route path="/signup" exact component={makeSignUp} />
+          <Route path="/" exact component={Home} />
+          <Route path="/login" component={makeLogin} />
+          <Route path="/signup" component={makeSignUp} />
+          <Route path="/profile" component={Profile} />
           {/* <PrivateRoute path="/" exact component={makeSurveyList} />
           <PrivateRoute path="/surveys/:id" component={makeSurveyResult} /> */}
         </Switch>

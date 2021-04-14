@@ -6,5 +6,5 @@ import '@/presentation/styles/global.scss'
 
 ReactDOM.render(
   <Router />,
-  document.getElementById('main')
+  document.getElementById('root')
 )
