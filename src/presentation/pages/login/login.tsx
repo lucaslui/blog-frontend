@@ -68,18 +68,20 @@ const Login: React.FC<Props> = ({ validation, authentication, saveAccessToken }:
 
   return (
     <div className={Styles.login}>
-      <LoginHeader/>
-        <form onSubmit={handleSubmit} className={Styles.form}>
-          <Logo/>
-          <hr />
+      <LoginHeader />
+      <form className={Styles.form} onSubmit={handleSubmit}>
+        <Logo />
+        <hr />
+        <div className={Styles.loginGroup}>
           <h2>Login</h2>
-          <Input onChange={handleChange} title={state.emailError} type="email" name="email" placeholder="Digite seu e-mail"/>
-          <Input onChange={handleChange} title={state.passwordError} type="password" name="password" placeholder="Digite sua senha"/>
+          <Input onChange={handleChange} title={state.emailError} type="email" name="email" placeholder="Digite seu e-mail" />
+          <Input onChange={handleChange} title={state.passwordError} type="password" name="password" placeholder="Digite sua senha" />
           <Button disabled={state.isFormInvalid} type="submit"> Entrar </Button>
           <Link to="/signup" className={Styles.link}>Não tem cadastro? Cadastre-se aqui</Link>
-          <FormStatus isLoading={state.isLoading} mainError={state.mainError}/>
-        </form>
-      <Footer/>
+          <FormStatus isLoading={state.isLoading} mainError={state.mainError} />
+        </div>
+      </form>
+      <Footer />
     </div>
   )
 }

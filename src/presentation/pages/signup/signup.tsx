@@ -83,14 +83,16 @@ const SignUp: React.FC<Props> = ({ validation, addAccount, saveAccessToken }: Pr
       <form onSubmit={handleSubmit} className={Styles.form}>
         <Logo/>
          <hr />
-         <h2>Criar Conta</h2>
-         <Input onChange={handleChange} title={state.nameError} type="text" name="name" placeholder="Digite seu nome"/>
-         <Input onChange={handleChange} title={state.emailError} type="email" name="email" placeholder="Digite seu e-mail"/>
-         <Input onChange={handleChange} title={state.passwordError} type="password" name="password" placeholder="Digite sua senha"/>
-         <Input onChange={handleChange} title={state.passwordConfirmationError} type="password" name="passwordConfirmation" placeholder="Digite sua senha novamente"/>
-         <Button disabled={state.isFormInvalid} type="submit" value="Criar"> Criar </Button>
-         <Link to="/login" className={Styles.link}> Já tem cadastro? clique aqui </Link>
-         <FormStatus isLoading={state.isLoading} mainError={state.mainError}/>
+         <div className={Styles.signupGroup}>
+          <h2>Criar Conta</h2>
+          <Input onChange={handleChange} title={state.nameError} type="text" name="name" placeholder="Digite seu nome"/>
+          <Input onChange={handleChange} title={state.emailError} type="email" name="email" placeholder="Digite seu e-mail"/>
+          <Input onChange={handleChange} title={state.passwordError} type="password" name="password" placeholder="Digite sua senha"/>
+          <Input onChange={handleChange} title={state.passwordConfirmationError} type="password" name="passwordConfirmation" placeholder="Digite sua senha novamente"/>
+          <Button disabled={state.isFormInvalid} type="submit" value="Criar"> Criar </Button>
+          <Link to="/login" className={Styles.link}> Já tem cadastro? clique aqui </Link>
+          <FormStatus isLoading={state.isLoading} mainError={state.mainError}/>
+         </div>
       </form>
       <Footer/>
     </div>
