@@ -1,0 +1,19 @@
+.home {
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  grid-template-areas: 'header' 'content' 'footer';
+  width: 100vw;
+  height: 100vh;
+
+  .content {
+    grid-area: content;
+    display: flex;
+    padding: 20px;
+  }
+
+  @media only screen and (max-width: 680px) {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'header' 'content' 'footer';
+  }
+}
+
