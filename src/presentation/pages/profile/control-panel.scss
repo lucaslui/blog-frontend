@@ -1,0 +1,24 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spaces.scss';
+
+.controlPanel {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+
+    .panel {
+      background-color: $background-secondary-color;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-radius: 10px;
+      margin: $outside-gap;
+      padding: $inside-gap;
+    }
+  }
+}
