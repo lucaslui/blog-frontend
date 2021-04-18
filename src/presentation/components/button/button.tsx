@@ -4,7 +4,7 @@ type Props = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Button: React.FC<Props> = (props: Props) => {
   return (
-    <button {...props}> aaaaaaa {props.children} </button>
+    <button {...props}> {props.children} </button>
   )
 }
 
