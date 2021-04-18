@@ -7,7 +7,7 @@ import { makeSignUp } from '../factories/pages/signup/signup-factory'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from '@/presentation/pages/home/home'
-import Profile from '@/presentation/pages/profile/profile'
+import ControlPanel from '@/presentation/pages/profile/control-panel'
 
 const Router: React.FC = () => {
   // const state = {
@@ -20,7 +20,7 @@ const Router: React.FC = () => {
           <Route path="/" exact component={Home} />
           <Route path="/login" component={makeLogin} />
           <Route path="/signup" component={makeSignUp} />
-          <Route path="/profile" component={Profile} />
+          <Route path="/profile" component={ControlPanel} />
           {/* <PrivateRoute path="/" exact component={makeSurveyList} />
           <PrivateRoute path="/surveys/:id" component={makeSurveyResult} /> */}
         </Switch>
