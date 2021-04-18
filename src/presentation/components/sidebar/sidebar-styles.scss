@@ -2,12 +2,13 @@
 @import '../../styles/spaces.scss';
 
 .sidebar {
-  grid-area: sidebar;
-  background-color: $background-secondary-color;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: $background-secondary-color;
   border-radius: 10px;
+  min-width: 300px;
+  min-height: auto;
   margin: $outside-gap;
   padding: $inside-gap;
 
@@ -26,7 +27,7 @@
     }
   }
 
-  .profile {
+  .profileData {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,7 +80,12 @@
       padding: 20px;
       text-decoration: none;
       font-size: 1rem;
-  
+      
+      &.selected {
+        background: $background-color;
+        border-left: 4px solid $secondary-color;
+      }
+
       &:hover {
         background: $background-color;
         border-left: 4px solid $secondary-color;

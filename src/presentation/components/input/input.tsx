@@ -11,7 +11,7 @@ const Input: React.FC<Props> = (props: Props) => {
   const getStatus = (): string => {
     return props.title ? '🔴' : '🟢'
   }
-  
+
   const getTitle = (): string => {
     return props.title || 'Tudo certo'
   }

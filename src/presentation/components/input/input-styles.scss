@@ -10,6 +10,7 @@
   input {
     flex-grow: 1;
     padding-right: 32px;
+    width: 100%;
 
     &[data-status="valid"] {
       border-color: $valid;
@@ -24,6 +25,7 @@
     position: absolute;
     font-size: 0.8rem;
     right: 10px;
+    top: 14px;
     cursor: help;
   }
 }
