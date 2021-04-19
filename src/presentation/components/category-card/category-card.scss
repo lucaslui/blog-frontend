@@ -1,0 +1,27 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spaces.scss';
+
+.categoryCard {
+  border: 1px solid $disabled-color;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    box-shadow: 0 4px 8px 0 $focus-color;
+    transform: translatey(-8px) !important;
+  }
+
+  img {
+    flex: 1
+  }
+
+  .categoryFoot {
+    background-color: $background-color;
+    padding: 10px 20px;
+    font-weight: 500;
+    text-align: center;
+  }
+}

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import Styles from './sidebar-styles.scss'
 
 import DefaultPhoto from '../../assets/imgs/user.svg'
+import AccountContext from '@/presentation/contexts/account-context'
 
 type Props = {
   items?: any
@@ -12,6 +13,14 @@ type Props = {
 }
 
 const Sidebar: React.FC<Props> = (props: Props) => {
+  const { setCurrentAccount } = useContext(AccountContext)
+  const history = useHistory()
+
+  const logout = (): void => {
+    setCurrentAccount(null)
+    history.replace('/')
+  }
+
   return (
     <div className={Styles.sidebar} data-status={props.sidebarOpened ? 'open' : 'closed'}>
       <button className={Styles.toggle} onClick={props.toggleSidebar}>
@@ -27,7 +36,7 @@ const Sidebar: React.FC<Props> = (props: Props) => {
         { props.items.map((item, index) => <SubMenu url={props.url} items={item} key={index} />) }
       </nav>
       <div className="spacer"></div>
-      <div className={Styles.logout}>
+      <div className={Styles.logout} onClick={logout}>
         <i className="fas fa-sign-out-alt"></i>
         <span> Sair da Conta </span>
       </div>

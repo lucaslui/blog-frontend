@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 import Styles from './header-styles.scss'
 
 import LogoImage from '../../assets/imgs/logo.svg'
 import DefaultUserImage from '../../assets/imgs/user.svg'
+import AccountContext from '@/presentation/contexts/account-context'
 
 type Props = {
   sidebarOpened: boolean
@@ -12,11 +13,11 @@ type Props = {
 }
 
 const Header: React.FC<Props> = (props: Props) => {
-  const [token] = useState(false)
+  const { getCurrentAccount } = useContext(AccountContext)
 
   return (
     <header className={Styles.header}>
-      <div className={Styles.logo}>
+      <Link to='/' className={Styles.logo}>
         <img src={LogoImage} alt="logo" />
         <div>
           <h1> Espaço de Conhecimento em IoT </h1>
@@ -25,9 +26,9 @@ const Header: React.FC<Props> = (props: Props) => {
             simples, prática e objetiva.
           </h2>
         </div>
-      </div>
+      </Link>
       <div className={Styles.spacer}/>
-      { token ? <Settings/> : <SignIn/>}
+      { getCurrentAccount()?.accessToken ? <Settings/> : <SignIn/>}
     </header>
   )
 }
@@ -36,10 +37,13 @@ export default Header
 
 const Settings: React.FC = () => {
   const [dropmenu, setDropmenu] = useState(false)
+  const history = useHistory()
 
   const toggleDropmenu = (): void => {
     setDropmenu(!dropmenu)
+    history.replace('/profile')
   }
+
   return (
     <div className={Styles.settings}>
         <div>

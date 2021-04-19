@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 import Styles from './login-styles.scss'
 import { LoginHeader, Footer, Input, FormStatus, Logo, Button } from '@/presentation/components'
 import { Validation } from '@/presentation/protocols/validation'
 import { Authentication } from '@/domain/usecases/auth/authentication'
-import { SaveAccessToken } from '@/domain/usecases/auth/save-access-token'
+import AccountContext from '@/presentation/contexts/account-context'
 
 type Props = {
   validation: Validation
   authentication: Authentication
-  saveAccessToken: SaveAccessToken
 }
 
-const Login: React.FC<Props> = ({ validation, authentication, saveAccessToken }: Props) => {
+const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
+  const { setCurrentAccount } = useContext(AccountContext)
   const history = useHistory()
 
   const [state, setState] = useState({
@@ -46,7 +46,7 @@ const Login: React.FC<Props> = ({ validation, authentication, saveAccessToken }:
         }))
         const account = await authentication.auth({ email: state.email, password: state.password })
         if (account?.accessToken) {
-          await saveAccessToken.save(account.accessToken)
+          setCurrentAccount({ accessToken: account.accessToken })
           history.replace('/')
         }
       }

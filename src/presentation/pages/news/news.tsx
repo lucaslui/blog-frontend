@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Styles from './home-styles.scss'
+import Styles from './news.scss'
 
 import { Footer, Header } from '@/presentation/components'
 import { NavLink } from 'react-router-dom'
 
-const Home: React.FC = () => {
+const News: React.FC = () => {
   const [sidebarOpened, setSidebarOpened] = useState(false)
 
   const toggleSidebar = (): void => setSidebarOpened(!sidebarOpened)
@@ -47,23 +47,23 @@ const Home: React.FC = () => {
   //   fetchData()
   // }, [])
   return (
-    <div className={Styles.home}>
+    <div className={Styles.news}>
       <Header toggleSidebar={toggleSidebar} sidebarOpened={sidebarOpened} />
       <NavBar />
       <div className={Styles.content}>
-
+        Noticias
       </div>
       <Footer />
     </div>
   )
 }
 
-export default Home
+export default News
 
 const NavBar: React.FC = () => {
   return (
     <nav className="navbar">
-      <NavLink to="/" activeClassName="selected">
+      <NavLink to="/home" activeClassName="selected">
         <i className="fas fa-home" />
         <span> Início </span>
       </NavLink>

@@ -1,7 +1,7 @@
 @import '../../styles/colors.scss';
 @import '../../styles/spaces.scss';
 
-.home {
+.tutorials {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -39,5 +39,29 @@
   .content {
     background-color: $background-secondary-color;
     flex-grow: 1;
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+      grid-gap: 32px;
+      margin: 40px;
+    }
+    
+    .categories-grid a {
+      text-decoration: none;
+      color: $primary-color;
+    }    
+
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+      grid-gap: 32px;
+    }
+    
+    .articles-grid a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+    
   }
 }

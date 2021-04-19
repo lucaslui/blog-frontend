@@ -10,5 +10,5 @@ export { default as Header } from './header/header'
 export { default as Sidebar } from './sidebar/sidebar'
 export { default as TextArea } from './text-area/text-area'
 export { default as TextAreaGroup } from './text-area-group/text-area-group'
-
 export { default as PageTitle } from './page-title/page-title'
+export { default as PrivateRoute } from './private-route/private-route'
