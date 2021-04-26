@@ -1,0 +1,9 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/spaces.scss';
+
+.news {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 40px;
+}

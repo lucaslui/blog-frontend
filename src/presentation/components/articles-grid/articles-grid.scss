@@ -1,0 +1,17 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spaces.scss';
+
+.articlesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  grid-gap: 32px;
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: flex-start;
+  // flex-wrap: wrap;
+
+  a {
+    text-decoration: none;
+    color: $primary-color;
+  }
+}

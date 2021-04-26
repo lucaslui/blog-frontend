@@ -9,7 +9,7 @@
   border-radius: 10px;
   min-width: 300px;
   min-height: auto;
-  margin: $outside-gap;
+  margin: $outside-gap $outside-gap 0px $outside-gap;
   padding: $inside-gap;
 
   .toggle {

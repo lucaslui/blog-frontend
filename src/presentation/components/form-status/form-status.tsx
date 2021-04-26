@@ -5,6 +5,7 @@ import Spinner from '../spinner/spinner'
 type Props = {
   isLoading: boolean
   mainError: string
+  successMessage?: string
 }
 
 const FormStatus: React.FC<Props> = (props: Props) => {
@@ -12,6 +13,7 @@ const FormStatus: React.FC<Props> = (props: Props) => {
     <div className={Styles.errorWrap}>
       { props.isLoading && <Spinner className={Styles.spinner}/>}
       { props.mainError && <span className={Styles.error}>{props.mainError}</span>}
+      { props.successMessage && <span className={Styles.success}>{props.successMessage}</span>}
     </div>
   )
 }

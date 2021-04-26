@@ -35,7 +35,7 @@ const ArticleCard: React.FC<Props> = (props: Props) => {
     const result = await axios(
       'https://espaco-de-conhecimento-backend.herokuapp.com/api/users/603a537aa65a6932d7f7cf0e'
     )
-    setProfile(result.data)
+    return result.data
   }
 
   const getDateFormat = (date): string => {

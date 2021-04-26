@@ -43,30 +43,57 @@
     flex: 1;
   }
 
-  .settings {
+  .userSettings {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     margin: 20px;
+
+    .notifications {
+      margin-right: 20px;
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+    .workbench {
+      margin-right: 20px;
+
+      i {
+        font-size: 1.5rem;
+      }
+    }
+
+    .userNotes {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      
+      span {
+        text-align: right;
+        margin-bottom: 4px;
+      }
+    }
 
     .dropdown {
       display: flex;
       flex-direction: row;
       align-items: center;
       background: none;
-      margin-left: 20px;
       cursor: pointer;
 
       img {
         border-radius: 50%;
-        height: 62px;
-        width: 62px;
+        height: 42px;
+        width: 42px;
         background-color: $disabled-color;
       }
 
       i {
         font-size: 1.2rem;
-        margin-left: 20px;
+        margin-left: 12px;
       }
     }
   }

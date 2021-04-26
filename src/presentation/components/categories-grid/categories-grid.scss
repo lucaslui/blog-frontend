@@ -1,0 +1,13 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spaces.scss';
+
+.categoriesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 260px));
+  grid-gap: 32px;
+
+  a {
+    text-decoration: none;
+    color: $primary-color;
+  }    
+}

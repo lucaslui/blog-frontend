@@ -10,6 +10,7 @@ import EditProfile from './contents/edit-profile/edit-profile'
 import AddArticle from './contents/article/add-article'
 import AddCategory from './contents/category/add-category'
 import AccountSettings from './contents/account/settings'
+import DeleteArticle from './contents/article/delete-article'
 
 const ControlPanel: React.FC = () => {
   const [sidebarOpened, setSidebarOpened] = useState(false)
@@ -65,7 +66,7 @@ const ControlPanel: React.FC = () => {
             <Route path={`${path}/add-article`} component={AddArticle} />
             <Route path={`${path}/edit-article`} component={AddArticle} />
             <Route path={`${path}/load-articles`} component={AddArticle} />
-            <Route path={`${path}/delete-article`} component={AddArticle} />
+            <Route path={`${path}/delete-article`} component={DeleteArticle} />
             <Route path={`${path}/add-category`} component={AddCategory} />
             <Route path={`${path}/edit-category`} component={AddCategory} />
             <Route path={`${path}/load-categories`} component={AddCategory} />

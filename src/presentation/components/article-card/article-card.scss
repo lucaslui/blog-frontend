@@ -1,38 +1,44 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spaces.scss';
+
+
 .articleCard {
-  border: 1px solid var(--disabled-color);
-  border-radius: 10px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-}
+  border: 1px solid $disabled-color;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 100%;
 
-.article-card:hover {
-  box-shadow: 0 4px 8px 0 var(--secondary-color);
-  transform: translatey(-8px) !important;
-}
+  &:hover {
+    box-shadow: 0 4px 8px 0 $focus-color;
+    transform: translatey(-8px) !important;
+  }
 
-.article-card img {
-  width: 100%;
-  height: auto;
-}
+  img {
+    width: 100%;
+    height: auto;
+  }
 
-.article-card .article-content {
-  background-color: var(--primary-color);
-  color: #000;
-  padding: 20px;
-}
+  .article-content {
+    background-color: $background-button-color;
+    color: $primary-color;
+    flex-grow: 1;
+    padding: 20px;
 
-.article-card .article-content h4 {
-  margin: 0px 0px 12px 0px;
-}
+    h4 {
+      margin-bottom: 12px;
+    }
+  }
 
-.article-card .article-foot {
-  background-color: var(--background-color);
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-}
+  .article-foot {
+    background-color: $background-color;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
 
-.article-card .article-foot i {
-  padding-right: 8px;
+  i {
+    padding-right: 8px;
+  }
 }

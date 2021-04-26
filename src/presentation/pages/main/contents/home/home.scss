@@ -1,0 +1,115 @@
+@import '../../../../styles/colors.scss';
+@import '../../../../styles/spaces.scss';
+
+.home {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 40px;
+
+  .homeNews {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-right: $outside-gap;
+    min-width: 80%;
+
+    .lastNews {
+      background-color: #5c5c6b11;
+      margin-bottom: 24px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 $background-button-color;
+
+      hr {
+        margin: 14px 0px;
+        width: 100%;
+        border: 0;
+        height: 2px;
+        background-image: linear-gradient(to right, rgba(120, 120, 120, 0.75), rgba(120, 120, 120, 0));
+      }
+
+      ul {
+        margin: 10px;
+        
+        li {
+          margin-right: 20px;
+          
+          a {
+            text-decoration: none;
+            color: $primary-color;
+          }    
+        }
+      }
+    }
+  
+    .lastTutorials {
+      background-color: #5c5c6b11;
+      margin-bottom: 24px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 $background-button-color;
+
+      hr {
+        margin: 14px 0px;
+        width: 100%;
+        border: 0;
+        height: 2px;
+        background-image: linear-gradient(to right, rgba(120, 120, 120, 0.75), rgba(120, 120, 120, 0));
+      }
+
+      ul {
+        margin: 10px;
+        
+        li {
+          margin-right: 20px;
+          
+          a {
+            text-decoration: none;
+            color: $primary-color;
+          }    
+        }
+      }
+    }
+  
+    .lastProjects {
+      background-color: #5c5c6b11;
+      margin-bottom: 24px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 $background-button-color;
+
+      hr {
+        margin: 14px 0px;
+        width: 100%;
+        border: 0;
+        height: 2px;
+        background-image: linear-gradient(to right, rgba(120, 120, 120, 0.75), rgba(120, 120, 120, 0));
+      }
+
+      ul {
+        margin: 10px;
+        
+        li {
+          margin-right: 20px;
+          
+          a {
+            text-decoration: none;
+            color: $primary-color;
+          }    
+        }
+      }
+    }
+  }
+
+  .statistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    min-width: 20%;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 $background-button-color;
+    margin-bottom: 24px;
+  }
+}

@@ -17,23 +17,29 @@ const Header: React.FC<Props> = (props: Props) => {
 
   return (
     <header className={Styles.header}>
-      <Link to='/' className={Styles.logo}>
-        <img src={LogoImage} alt="logo" />
-        <div>
-          <h1> Espaço de Conhecimento em IoT </h1>
-          <h2>
-            Tendo como objetivo o ensino de Internet das Coisas de forma
-            simples, prática e objetiva.
-          </h2>
-        </div>
-      </Link>
-      <div className={Styles.spacer}/>
-      { getCurrentAccount()?.accessToken ? <Settings/> : <SignIn/>}
+      <Logo />
+      <div className={Styles.spacer} />
+      { getCurrentAccount()?.accessToken ? <Settings /> : <SignIn />}
     </header>
   )
 }
 
 export default Header
+
+const Logo: React.FC = () => {
+  return (
+    <Link to='/' className={Styles.logo}>
+      <img src={LogoImage} alt="logo" />
+      <div>
+        <h1> Espaço de Conhecimento em IoT </h1>
+        <h2>
+          Tendo como objetivo o ensino de Internet das Coisas de forma
+          simples, prática e objetiva.
+      </h2>
+      </div>
+    </Link>
+  )
+}
 
 const Settings: React.FC = () => {
   const [dropmenu, setDropmenu] = useState(false)
@@ -45,16 +51,18 @@ const Settings: React.FC = () => {
   }
 
   return (
-    <div className={Styles.settings}>
-        <div>
-          <span> Nome </span>
-          <i className="fas fa-bell"></i>
-        </div>
-        <div className={Styles.dropdown} onClick={toggleDropmenu}>
-          <img src={DefaultUserImage} alt="default-photo" />
-          {dropmenu ? <i className="fas fa-sort-up" /> : <i className="fas fa-sort-down" /> }
-        </div>
+    <div className={Styles.userSettings}>
+      <div className={Styles.notifications}>
+        <i className="fas fa-bell" />
       </div>
+      <div className={Styles.workbench}>
+        <i className="fas fa-plus-square"></i>
+      </div>
+      <div className={Styles.dropdown} onClick={toggleDropmenu}>
+        <img src={DefaultUserImage} alt="default-photo" />
+        {dropmenu ? <i className="fas fa-sort-up" /> : <i className="fas fa-sort-down" />}
+      </div>
+    </div>
   )
 }
 
