@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'main-bundle-[fullhash].js'
+    filename: './static/js/main-bundle-[fullhash].js'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', 'scss', 'gif', 'png'],

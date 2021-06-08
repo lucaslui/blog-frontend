@@ -39,7 +39,7 @@ module.exports = merge(common, {
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'assets'
+              outputPath: 'static/media'
             }
           }
         ]
@@ -50,7 +50,7 @@ module.exports = merge(common, {
           {
             loader: 'svg-url-loader',
             options: {
-              outputPath: 'assets'
+              outputPath: 'static/media'
             }
           }
         ]
@@ -68,12 +68,12 @@ module.exports = merge(common, {
       template: './public/index.prod.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'main-bundle-[fullhash].css'
+      filename: './static/css/main-bundle-[fullhash].css'
     }),
     new FaviconsWebpackPlugin({
       logo: './public/favicon.svg',
       inject: true,
-      prefix: 'assets/icons/'
+      prefix: 'static/media/icons'
     }),
     new DefinePlugin({
       'process.env.API_URL': JSON.stringify('https://espaco-de-conhecimento-backend.herokuapp.com/api')

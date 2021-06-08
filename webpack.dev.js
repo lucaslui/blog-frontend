@@ -68,7 +68,7 @@ module.exports = merge(common, {
       template: './public/index.dev.html'
     }),
     new FaviconsWebpackPlugin({
-      logo: './public/favicon.png',
+      logo: './public/favicon.svg',
       inject: true
     }),
     new DefinePlugin({
