@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://lucaslui.github.io/blog-frontend/",
+  "homepage": ".",
   "scripts": {
     "start": "node index",
     "dev": "webpack-cli serve --open --mode development --config webpack.dev.js",
@@ -61,6 +61,6 @@
     "react-router-dom": "^5.2.0",
     "react-select": "^4.3.1",
     "react-simple-tree-menu": "^1.1.18",
-    "react-table": "^7.7.0"
+    "react-table": "^6.11.5"
   }
 }
