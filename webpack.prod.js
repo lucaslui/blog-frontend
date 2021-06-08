@@ -1,24 +1,12 @@
-const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const { DefinePlugin } = require('webpack')
+const common = require('./webpack.common')
+const { merge } = require('webpack-merge')
 
-module.exports = {
-  mode: 'development',
-  entry: './src/main/index.tsx',
-  output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/',
-    filename: 'main-bundle-[hash].js'
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'scss', 'gif', 'png'],
-    alias: {
-      '@': path.join(__dirname, 'src')
-    }
-  },
+module.exports = merge(common, {
+  mode: 'production',
   module: {
     rules: [
       {
@@ -32,9 +20,6 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader
           },
-          // {
-          //   loader: 'style-loader'
-          // },
           {
             loader: 'css-loader',
             options: {
@@ -52,7 +37,10 @@ module.exports = {
         test: /\.(eot|woff|woff2|ttf|png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader'
+            loader: 'file-loader',
+            options: {
+              outputPath: 'assets'
+            }
           }
         ]
       },
@@ -62,19 +50,12 @@ module.exports = {
           {
             loader: 'svg-url-loader',
             options: {
-              limit: 10000
+              outputPath: 'assets'
             }
           }
         ]
       }
     ]
-  },
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './public',
-    writeToDisk: true,
-    historyApiFallback: true,
-    port: 8080
   },
   externals: {
     react: 'React',
@@ -84,17 +65,18 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html'
-    }),
-    new FaviconsWebpackPlugin({
-      logo: './public/favicon.svg'
+      template: './public/index.prod.html'
     }),
     new MiniCssExtractPlugin({
-      filename: 'main-bundle-[hash].css'
+      filename: 'main-bundle-[fullhash].css'
     }),
-    new CleanWebpackPlugin(),
+    new FaviconsWebpackPlugin({
+      logo: './public/favicon.svg',
+      inject: true,
+      prefix: 'assets/icons/'
+    }),
     new DefinePlugin({
       'process.env.API_URL': JSON.stringify('https://espaco-de-conhecimento-backend.herokuapp.com/api')
     })
   ]
-}
+})
