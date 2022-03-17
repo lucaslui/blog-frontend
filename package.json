@@ -12,6 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": ".",
   "devDependencies": {
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.9",
