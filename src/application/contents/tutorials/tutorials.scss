@@ -1,0 +1,9 @@
+@import '../../styles/colors.scss';
+@import '../../styles/spaces.scss';
+
+.tutorials {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 40px;
+}
